@@ -1,0 +1,15 @@
+export const options = {
+  colors: ["#fff"],
+  enableTooltip: false,
+  deterministic: false,
+  fontFamily: "FMedium",
+  fontSizes: [45, 100],
+  fontStyle: "normal",
+  fontWeight: "normal",
+  padding: 0,
+  rotations: 1,
+  rotationAngles: [0],
+  scale: "linear",
+  spiral: "archimedean",
+  transitionDuration: 500,
+};

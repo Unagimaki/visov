@@ -1,0 +1,7 @@
+$font-path-futura: '../fonts/Futura/';
+
+@font-face {
+    font-family: 'FMedium';
+    src: url($font-path-futura + 'FuturaPT-Medium.ttf');
+}
+$FMedium: 'FMedium';
