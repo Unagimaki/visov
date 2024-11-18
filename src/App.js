@@ -8,25 +8,42 @@ import { ref, onValue } from 'firebase/database';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionSetAnswers } from './state/reducers/answerReducer/actions';
 import { actionSetWords } from './state/reducers/wordsReducer/wordsReducer';
-import { calculatePercentage } from './helpers/calculatePercentage';
-import { calculateNumFromProcent } from './helpers/calculateNumFromProcent';
+
 
 function App() {
   const dispatch = useDispatch()
   const words = useSelector(state => state.words)
   const containerRef = useRef(null)
-
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
-  const minvw = calculatePercentage(windowSize.width, 30)
-  const maxvw = calculatePercentage(windowSize.width, 95)
-  const fontMin = calculateNumFromProcent(minvw, windowSize.width)
-  const fontMax = calculateNumFromProcent(maxvw, windowSize.width)
-  console.log(fontMin);
-  console.log(fontMax);
+  const [currentMaxFontSize, setCurrentMaxFontSize] = useState({
+    minFont: 30,
+    maxFont: 95
+  });
+
+  const calcMinFont = () => {
+    const size = 1920;
+
+    if (windowSize.width < size) {
+      const currentSize = size / windowSize.width;
+      setCurrentMaxFontSize(prevState => ({
+        minFont: prevState.minFont / currentSize,
+        maxFont: prevState.maxFont / currentSize
+      }));
+    } else {
+      const currentSize = windowSize.width / size;
+      setCurrentMaxFontSize(prevState => ({
+        minFont: prevState.minFont * currentSize,
+        maxFont: prevState.maxFont * currentSize
+      }));
+    }
+  };
   
+  useEffect(() => {
+    calcMinFont(); // Вызываем функцию при монтировании компонента
+  }, [windowSize])
   
   
     useEffect(() => {
@@ -88,7 +105,7 @@ function App() {
   colors: ["#fff"],
   enableTooltip: false,
   deterministic: false,
-  fontSizes: [fontMin, fontMax],
+  fontSizes: [currentMaxFontSize.minFont, currentMaxFontSize.maxFont],
   padding: 10,
   rotations: 1,
   rotationAngles: [0],
