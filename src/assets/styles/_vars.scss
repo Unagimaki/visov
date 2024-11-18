@@ -4,4 +4,20 @@ $font-path-futura: '../fonts/Futura/';
     font-family: 'FMedium';
     src: url($font-path-futura + 'FuturaPT-Medium.ttf');
 }
+@font-face {
+    font-family: 'FBold';
+    src: url($font-path-futura + 'FuturaPT-Bold.ttf');
+}
+@font-face {
+    font-family: 'FDemi';
+    src: url($font-path-futura + 'FuturaPT-Demi.ttf');
+}
+
+@font-face {
+    font-family: 'FLight';
+    src: url($font-path-futura + 'FuturaPT-Light.ttf');
+}
 $FMedium: 'FMedium';
+$FBold: 'FBold';
+$FDemi: 'FDemi';
+$FLight: 'FLight';

@@ -4,16 +4,48 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: $FMedium;
+    // font-family: $FMedium;
 }
 
 body {
     background: url(./assets//images/background.png) no-repeat;
     background-size: cover;
-    font-family: $FMedium;
+    text-transform: uppercase;
 }
 
-.App {
+.app {
+    padding-top: min(7.92vw, 431px);
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.title_container {
+    height: 20vh;
+}
+.title {
+    text-align: center;
+    color: #977F64;
+    font-family: $FLight;
+    font-size: min(5.09vw, 277px);
+}
+.cloud_wrapper {
+    height: min(56.68vh, 1735px);
+    width: min(91.77vw, 4995px);
+}
+.bold {
+    font-family: $FBold;
+}
+
+.medium {
+    font-family: $FMedium; 
+}
+
+.light {
+    font-family: $FLight;
+}
+
+.container {
+    width: 90vw;
 }
