@@ -34,20 +34,11 @@ function App() {
     // Используем минимальный коэффициент, чтобы избежать слишком маленького шрифта
     const currentFactor = Math.min(widthFactor, heightFactor);
 
-    // Проверяем, если высота больше ширины в 1.8 раза
-    if (windowSize.height >= windowSize.width * 1.8) {
-      // Увеличиваем минимальный размер шрифта в 1.5 раза
-      setCurrentMaxFontSize(prevState => ({
-        minFont: Math.max(prevState.minFont * currentFactor * 1.5, 20), // Устанавливаем минимальный размер шрифта
-        maxFont: Math.max(prevState.maxFont * currentFactor, 50)  // Устанавливаем максимальный размер шрифта
-      }));
-    } else {
-      // Устанавливаем новые размеры шрифта без увеличения
-      setCurrentMaxFontSize(prevState => ({
-        minFont: Math.max(prevState.minFont * currentFactor, 20), // Устанавливаем минимальный размер шрифта
-        maxFont: Math.max(prevState.maxFont * currentFactor, 50)  // Устанавливаем максимальный размер шрифта
-      }));
-    }
+    // Устанавливаем новые размеры шрифта
+    setCurrentMaxFontSize(prevState => ({
+      minFont: Math.max(prevState.minFont * currentFactor, 20), // Устанавливаем минимальный размер шрифта
+      maxFont: Math.max(prevState.maxFont * currentFactor, 50)  // Устанавливаем минимальный размер шрифта
+    }));
   };
 
   useEffect(() => {
