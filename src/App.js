@@ -24,26 +24,31 @@ function App() {
   });
 
   const calcMinFont = () => {
-    const size = 1920;
+    const baseWidth = 1920; // Базовая ширина
+    const baseHeight = 1080; // Базовая высота
 
-    if (windowSize.width < size) {
-      const currentSize = size / windowSize.width;
-      setCurrentMaxFontSize(prevState => ({
-        minFont: prevState.minFont / currentSize,
-        maxFont: prevState.maxFont / currentSize
-      }));
-    } else {
-      const currentSize = windowSize.width / size;
-      setCurrentMaxFontSize(prevState => ({
-        minFont: prevState.minFont * currentSize,
-        maxFont: prevState.maxFont * currentSize
-      }));
-    }
+    // Рассчитываем коэффициенты для ширины и высоты
+    const widthFactor = windowSize.width / baseWidth;
+    const heightFactor = windowSize.height / baseHeight;
+
+    // Используем минимальный коэффициент, чтобы избежать слишком маленького шрифта
+    const currentFactor = Math.min(widthFactor, heightFactor);
+
+    // Устанавливаем новые размеры шрифта
+    setCurrentMaxFontSize(prevState => ({
+      minFont: Math.max(prevState.minFont * currentFactor, 10), // Устанавливаем минимальный размер шрифта
+      maxFont: Math.max(prevState.maxFont * currentFactor, 50)  // Устанавливаем минимальный размер шрифта
+    }));
   };
-  
+
   useEffect(() => {
     calcMinFont(); // Вызываем функцию при монтировании компонента
-  }, [windowSize])
+    window.addEventListener('resize', calcMinFont); // Добавляем обработчик события resize
+
+    return () => {
+      window.removeEventListener('resize', calcMinFont); // Убираем обработчик при размонтировании
+    };
+  }, [windowSize]);
   
   
     useEffect(() => {
@@ -121,7 +126,7 @@ function App() {
       </div>
       {
         words &&
-        <div className='cloud_wrapper' ref={containerRef}>
+        <div className='cloud_wrapper' ref={containerRef} style={{height: windowSize.height / windowSize.width >= 1.8 && '90vh'}}>
           <ReactWordcloud options={options} words={words} />
         </div>
       }

@@ -14,7 +14,7 @@ body {
 }
 
 .app {
-    padding-top: min(7.92vw, 431px);
+    padding-top: 7.92vw;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -23,12 +23,15 @@ body {
 }
 .title_container {
     height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .title {
     text-align: center;
     color: #977F64;
     font-family: $FLight;
-    font-size: min(5.09vw, 277px);
+    font-size: 5.09vw;
 }
 .cloud_wrapper {
     height: 56.68vh;
