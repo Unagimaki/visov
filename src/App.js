@@ -36,7 +36,7 @@ function App() {
 
     // Устанавливаем новые размеры шрифта
     setCurrentMaxFontSize(prevState => ({
-      minFont: Math.max(prevState.minFont * currentFactor, 10), // Устанавливаем минимальный размер шрифта
+      minFont: Math.max(prevState.minFont * currentFactor, 20), // Устанавливаем минимальный размер шрифта
       maxFont: Math.max(prevState.maxFont * currentFactor, 50)  // Устанавливаем минимальный размер шрифта
     }));
   };
