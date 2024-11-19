@@ -8,7 +8,6 @@ import { ref, onValue } from 'firebase/database';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionSetAnswers } from './state/reducers/answerReducer/actions';
 import { actionSetWords } from './state/reducers/wordsReducer/wordsReducer';
-import { data } from './example';
 
 
 function App() {

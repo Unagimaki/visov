@@ -4,6 +4,11 @@ export const countScientists = (answers) => {
 
     // Перебираем каждый объект в массиве answers
     answers.forEach(answer => {
+        // Проверяем, существует ли поле scientist
+        if (!answer.scientist) {
+            return; // Если поле отсутствует, пропускаем текущую итерацию
+        }
+
         // Приводим имя ученого к нижнему регистру
         const scientistName = answer.scientist.toLowerCase();
 
@@ -19,7 +24,7 @@ export const countScientists = (answers) => {
         }
     });
 
-    // Приводим все значения text в массиве result к нижнему регистру
+    // Приводим все значения text в массиве result к верхнему регистру
     const normalizedResult = result.map(item => ({
         text: item.text.toUpperCase(),
         value: item.value
