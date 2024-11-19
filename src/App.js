@@ -126,10 +126,10 @@ function App() {
         <h1 className='title'>Заголовок заголовок</h1>
       </div>
       {
-        words ?
+        words &&
         <div className='cloud_wrapper' ref={containerRef}>
           <ReactWordcloud options={options} words={words} />
-        </div> : <div style={{textAlign: 'center', color: '#fff', fontSize: '2vw'}}>Loading...</div>
+        </div>
       }
     </div>
   );
