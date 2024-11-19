@@ -34,9 +34,13 @@ body {
     font-size: 5.09vw;
 }
 .cloud_wrapper {
-    height: 56.68vh;
-    width: 91.77vw;
+    width: 100%;
+    height: 100%;
 }
+// .cloud_wrapper {
+//     height: 56.68vh;
+//     width: 91.77vw;
+// }
 .bold {
     font-family: $FBold;
 }

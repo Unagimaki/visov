@@ -8,6 +8,7 @@ import { ref, onValue } from 'firebase/database';
 import { useDispatch, useSelector } from 'react-redux';
 import { actionSetAnswers } from './state/reducers/answerReducer/actions';
 import { actionSetWords } from './state/reducers/wordsReducer/wordsReducer';
+import { data } from './example';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
   });
   const [currentMaxFontSize, setCurrentMaxFontSize] = useState({
     minFont: 30,
-    maxFont: 95
+    maxFont: 65
   });
 
   const calcMinFont = () => {
@@ -109,14 +110,15 @@ function App() {
  const options = {
   colors: ["#fff"],
   enableTooltip: false,
-  deterministic: false,
-  fontSizes: [currentMaxFontSize.minFont, currentMaxFontSize.maxFont],
-  padding: 10,
-  rotations: 1,
-  rotationAngles: [0],
-  scale: "linear",
+  deterministic: true,
+  // fontSizes: [currentMaxFontSize.minFont, currentMaxFontSize.maxFont],
+  fontSizes: [30, 95],
+  padding: 1,
+  rotations: 0,
+  rotationAngles: 0,
+  scale: "sqrt",
   spiral: "archimedean",
-  transitionDuration: 2000,
+  transitionDuration: 1000,
 };
 
   return (
@@ -126,7 +128,7 @@ function App() {
       </div>
       {
         words &&
-        <div className='cloud_wrapper' ref={containerRef} style={{height: windowSize.height / windowSize.width >= 1.8 && '90vh'}}>
+        <div className='cloud_wrapper' ref={containerRef}>
           <ReactWordcloud options={options} words={words} />
         </div>
       }

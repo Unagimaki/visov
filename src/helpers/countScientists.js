@@ -21,7 +21,7 @@ export const countScientists = (answers) => {
 
     // Приводим все значения text в массиве result к нижнему регистру
     const normalizedResult = result.map(item => ({
-        text: item.text.toLowerCase(),
+        text: item.text.toUpperCase(),
         value: item.value
     }));
 
