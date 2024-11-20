@@ -1,3 +1,5 @@
+import { capitalizeWords } from "./capitalizeWords";
+
 export const countScientists = (answers) => {
     // Новый массив для хранения результатов
     const result = [];
@@ -26,7 +28,7 @@ export const countScientists = (answers) => {
 
     // Приводим все значения text в массиве result к верхнему регистру
     const normalizedResult = result.map(item => ({
-        text: item.text.toUpperCase(),
+        text: capitalizeWords(item.text),
         value: item.value
     }));
 

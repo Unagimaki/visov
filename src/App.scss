@@ -10,11 +10,11 @@
 body {
     background: url(./assets//images/background.png) no-repeat;
     background-size: cover;
-    text-transform: uppercase;
+    overflow: hidden;
 }
 
 .app {
-    padding-top: 7.92vw;
+    padding-top: min(7.92vw, 431.09px);
     width: 100vw;
     height: 100vh;
     display: flex;

@@ -111,19 +111,19 @@ function App() {
   enableTooltip: false,
   deterministic: true,
   // fontSizes: [currentMaxFontSize.minFont, currentMaxFontSize.maxFont],
-  fontSizes: [30, 95],
+  fontSizes: [currentMaxFontSize.minFont, currentMaxFontSize.maxFont],
   padding: 1,
   rotations: 0,
   rotationAngles: 0,
   scale: "sqrt",
   spiral: "archimedean",
-  transitionDuration: 1000,
+  transitionDuration: 500,
 };
 
   return (
     <div className='app'>
       <div className='title_container'>
-        <h1 className='title'>Заголовок заголовок</h1>
+        <h1 className='title'>Рейтинг главных учёных страны КМУ</h1>
       </div>
       {
         words &&
