@@ -19,8 +19,8 @@ function App() {
     height: window.innerHeight,
   });
   const [currentMaxFontSize, setCurrentMaxFontSize] = useState({
-    minFont: 30,
-    maxFont: 65
+    minFont: 35,
+    maxFont: 70
   });
 
   const calcMinFont = () => {
@@ -84,9 +84,9 @@ function App() {
           const fontSize = parseFloat(window.getComputedStyle(el).fontSize); // Получаем размер шрифта          
         el.classList.remove('bold', 'medium', 'light'); // Удаляем предыдущие классы
 
-        if (fontSize >= 80) {
+        if (fontSize >= currentMaxFontSize.maxFont) {
           el.classList.add('bold');
-        } else if (fontSize >= 45) {
+        } else if (fontSize >= currentMaxFontSize.minFont) {
           el.classList.add('medium');
         } else {
           el.classList.add('light');
@@ -112,7 +112,7 @@ function App() {
   deterministic: true,
   // fontSizes: [currentMaxFontSize.minFont, currentMaxFontSize.maxFont],
   fontSizes: [currentMaxFontSize.minFont, currentMaxFontSize.maxFont],
-  padding: 1,
+  padding: 2,
   rotations: 0,
   rotationAngles: 0,
   scale: "sqrt",
