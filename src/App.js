@@ -123,7 +123,7 @@ function App() {
   return (
     <div className='app'>
       <div className='title_container'>
-        <h1 className='title'>Рейтинг российских ученых по версии участников КМУ 2024</h1>
+        <h1 className='title'>Рейтинг российских ученых <br/> по версии участников КМУ 2024</h1>
       </div>
       {
         words &&
